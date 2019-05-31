@@ -25,5 +25,5 @@ export function generateUsers(numberOfUsers) {
 }
 
 export const state = {
-  users: generateUsers(1000),
+  users: generateUsers(200),
 }

@@ -1,15 +1,9 @@
 .List {
-  width: 80px;
   background-color: rgba(32, 32, 35, 1);
-  height: 100%;
   border-right: 1px solid rgba(189, 189, 192, 0.1);
-  transition: width 0.3s;
   overflow-y: scroll;
 }
 
-/* width 80px & 320px on large devices  */
-@media (min-width: 576px) {
-  .List {
-    width: 320px;
-  }
+.User__img-frame {
+  height: 128px;
 }

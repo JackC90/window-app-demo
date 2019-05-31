@@ -6,7 +6,7 @@ const ListGenerator = () => {
   // const state = store.getState();
   const { users } = state;
   return (
-    <div className="ChatWindow">
+    <div className="ListGenerator">
       <List users={users} />
     </div>
   );
