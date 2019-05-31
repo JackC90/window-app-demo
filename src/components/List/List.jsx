@@ -55,7 +55,7 @@ class List extends Component {
     return (
       <FixedSizeList
         className="Users" ref={this.chatsRef}
-        height={500}
+        height={720}
         itemCount={users.length}
         itemSize={320}
         width={600}
