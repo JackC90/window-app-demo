@@ -1,17 +1,16 @@
-import React, { Component } from "react";
+import React, { Component, memo } from "react";
 import "./List.css";
-import { FixedSizeList } from "react-window";
+import { FixedSizeList, areEqual } from "react-window";
 import Avatar from '@material-ui/core/Avatar';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 
-// If list items are expensive to render,
-// Consider using React.memo or shouldComponentUpdate to avoid unnecessary re-renders.
+// React.memo to avoid unnecessary re-renders.
 // https://reactjs.org/docs/react-api.html#reactmemo
 // https://reactjs.org/docs/react-api.html#reactpurecomponent
-const Row = ({ data, index, style }) => {
+const Row = memo(({ data, index, style }) => {
   const user = data[index];
   const { name, email, profile_pic, status, user_id } = user;
   return (
@@ -37,7 +36,7 @@ const Row = ({ data, index, style }) => {
       </Card>
     </div>
   );
-};
+}, areEqual);
 
 class List extends Component {
   constructor(props) {
@@ -51,13 +50,6 @@ class List extends Component {
     this.chatsRef.current.scrollTop = this.chatsRef.current.scrollHeight;
   };
 
-  // componentDidMount() {
-  //   this.scrollToBottom();
-  // }
-  // componentDidUpdate() {
-  //   this.scrollToBottom();
-  // }
-
   render() {
     const { users } = this.props;
     return (
@@ -65,7 +57,7 @@ class List extends Component {
         className="Users" ref={this.chatsRef}
         height={500}
         itemCount={users.length}
-        itemSize={280}
+        itemSize={320}
         width={600}
         itemData={users}
       >
